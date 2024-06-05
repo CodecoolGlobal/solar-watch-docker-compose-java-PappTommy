@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HttpRequestTest {
+public class HttpRequestIT {
 
     @LocalServerPort
     private int port;

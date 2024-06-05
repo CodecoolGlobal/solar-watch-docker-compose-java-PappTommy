@@ -1,3 +1,4 @@
+
 package com.codecool.solar_watch;
 
 import com.codecool.solar_watch.controller.SolarAdminController;
@@ -10,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest
-class SolarWatchApplicationTests {
+class SolarWatchApplicationIT {
 
     @Autowired
     private SolarWatchController solarWatchController;

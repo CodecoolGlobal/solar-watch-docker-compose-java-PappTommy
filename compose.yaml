@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16.3
+    environment:
+      POSTGRES_DB: solarwatch
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5430:5432"
+  app:
+    container_name: 'solar-container'
+    image: 'solar-watch-app'
+    build:
+      context: solar_watch
+    depends_on:
+      - db
+    environment:
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SW_SECRET_KEY: ${SW_SECRET_KEY}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    ports:
+      - "8080:8080"
+  frontend:
+    container_name: frontendcont
+    build:
+      context: solar-watch
+    image: frontend
+    ports:
+      - "5173:5173"

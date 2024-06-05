@@ -89,10 +89,8 @@
 			<version>2.2.224</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
+
+
 
 	</dependencies>
 
@@ -102,7 +100,29 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.2.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+
+		<profile>
+		<id>test</id>
+		<properties>
+			<spring.profiles.active>test</spring.profiles.active>
+		</properties>
+		</profile>
+	</profiles>
 
 </project>

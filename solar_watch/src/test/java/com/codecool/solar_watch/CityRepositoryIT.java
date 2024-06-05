@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
 @ActiveProfiles("test")
-public class CityRepositoryIntegrationTest {
+public class CityRepositoryIT {
 
     @Autowired
     private CityRepository cityRepository;
@@ -39,3 +39,4 @@ public class CityRepositoryIntegrationTest {
         assertEquals("United Kingdom", foundCity.get().getCountry());
     }
 }
+
